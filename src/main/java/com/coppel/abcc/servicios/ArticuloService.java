@@ -1,6 +1,5 @@
 package com.coppel.abcc.servicios;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coppel.abcc.modelo.Articulo;
@@ -13,7 +12,7 @@ import java.util.Optional;
 public class ArticuloService {
     private final ArticuloRepository articuloRepository;
 
-    @Autowired
+    
     public ArticuloService(ArticuloRepository articuloRepository) {
         this.articuloRepository = articuloRepository;
     }
