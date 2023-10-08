@@ -34,10 +34,16 @@ public class ArticuloController {
     }
 
     @PostMapping("/crear")
-    public String crearArticulo(@ModelAttribute Articulo articulo) {
-        articuloService.guardarArticulo(articulo);
-        return "redirect:/articulos/";
+    public String crearArticulo(@ModelAttribute Articulo articulo, Model model) {
+        if (articuloService.validarCantidadMenorOIgualAlStock(articulo)) {
+            articuloService.guardarArticulo(articulo);
+            return "redirect:/articulos/";
+        } else {
+            model.addAttribute("error", "La cantidad no puede ser mayor que el stock.");
+            return "formulario-articulo";
+        }
     }
+
 
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable Long id, Model model) {

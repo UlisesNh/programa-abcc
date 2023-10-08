@@ -9,6 +9,10 @@ import java.util.Optional;
 @Service
 public class ArticuloService {
     private final ArticuloRepository articuloRepository;
+    
+    public boolean validarCantidadMenorOIgualAlStock(Articulo articulo) {
+        return articulo.getCantidad() <= articulo.getStock();
+    }
 
     public ArticuloService(ArticuloRepository articuloRepository) {
         this.articuloRepository = articuloRepository;
