@@ -1,10 +1,8 @@
 package com.coppel.abcc.servicios;
 
 import org.springframework.stereotype.Service;
-
 import com.coppel.abcc.modelo.Articulo;
 import com.coppel.abcc.repositorio.ArticuloRepository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -12,13 +10,8 @@ import java.util.Optional;
 public class ArticuloService {
     private final ArticuloRepository articuloRepository;
 
-    
     public ArticuloService(ArticuloRepository articuloRepository) {
         this.articuloRepository = articuloRepository;
-    }
-
-    public Optional<Articulo> buscarPorSku(String sku) {
-        return articuloRepository.findBySku(sku);
     }
 
     public List<Articulo> obtenerTodos() {
@@ -26,17 +19,20 @@ public class ArticuloService {
     }
 
     public void guardarArticulo(Articulo articulo) {
-        
         articuloRepository.save(articulo);
     }
 
     public void eliminarArticulo(Long id) {
-        
         articuloRepository.deleteById(id);
     }
 
     public void actualizarArticulo(Articulo articulo) {
-    
         articuloRepository.save(articulo);
     }
+
+
+	public Optional<Articulo> buscarPorId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
